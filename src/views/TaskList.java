@@ -675,17 +675,16 @@ public class TaskList {
         List<Performers> performers = permissionService.getPerformers();
         System.out.println("Enter name of the task that you want to search: ");
         String taskName = input.nextLine().toUpperCase();
-//        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");1
 
         int count = 0;
 
         System.out.println("---ALL TASKS-------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-        System.out.printf("%-17s %-23s %-15s %-15s %-15s %-15s %-20s %-15s %-15s\n", "Id", "Task name", "Create day", "Deadline", "Created by", "Updated by", "Last update", "Status", "Description");
+        System.out.printf("%-17s %-23s %-15s %-15s %-15s %-15s %-40s %-15s %-15s\n", "Id", "Task name", "Create day", "Deadline", "Created by", "Updated by", "Last update", "Status", "Description");
         System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         for (int i = 0; i < tasksList.size(); i++) {
 
             if ((tasksList.get(i).getTaskName().toUpperCase()).contains(taskName)) {
-                System.out.printf("%-17s %-23s %-15s %-15s %-15s %-15s %-20s %-15s %-15s\n", tasksList.get(i).getId(), tasksList.get(i).getTaskName(), tasksList.get(i).getCreateDate(), tasksList.get(i).getDeadline(), tasksList.get(i).getCreatedBy(), tasksList.get(i).getUpdatedBy(), tasksList.get(i).getLastUpdate(), tasksList.get(i).isStatus(), tasksList.get(i).getDescription());
+                System.out.printf("%-17s %-23s %-15s %-15s %-15s %-40s %-20s %-15s %-15s\n", tasksList.get(i).getId(), tasksList.get(i).getTaskName(), tasksList.get(i).getCreateDate(), tasksList.get(i).getDeadline(), tasksList.get(i).getCreatedBy(), tasksList.get(i).getUpdatedBy(), tasksList.get(i).getLastUpdate(), tasksList.get(i).isStatus(), tasksList.get(i).getDescription());
                 count++;
                 for (Performers performer : performers) {
                     if (performer.getTaskId() == tasksList.get(i).getId())
@@ -719,7 +718,7 @@ public class TaskList {
 
 
         System.out.println("---ALL TASKS-------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-        System.out.printf("%-17s %-23s %-15s %-15s %-15s %-15s %-20s %-15s %-15s\n", "Id", "Task name", "Create day", "Deadline", "Created by", "Updated by", "Last update", "Status", "Description");
+        System.out.printf("%-17s %-23s %-15s %-15s %-15s %-15s %-40s %-15s %-15s\n", "Id", "Task name", "Create day", "Deadline", "Created by", "Updated by", "Last update", "Status", "Description");
         System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
         if(currentUser.getRole()==Role.LEADER){
@@ -729,7 +728,7 @@ public class TaskList {
 
                 String deadline = tasksList.get(i).getDeadline();
                 if ((ValidateUtils.toISODate(deadlineInput)).compareTo(ValidateUtils.toISODate(deadline)) >= 0 ) {
-                    System.out.printf("%-17s %-23s %-15s %-15s %-15s %-15s %-20s %-15s %-15s\n", tasksList.get(i).getId(), tasksList.get(i).getTaskName(), tasksList.get(i).getCreateDate(), tasksList.get(i).getDeadline(), tasksList.get(i).getCreatedBy(), tasksList.get(i).getUpdatedBy(), tasksList.get(i).getLastUpdate(), tasksList.get(i).isStatus(), tasksList.get(i).getDescription());
+                    System.out.printf("%-17s %-23s %-15s %-15s %-15s %-15s %-40s %-15s %-15s\n", tasksList.get(i).getId(), tasksList.get(i).getTaskName(), tasksList.get(i).getCreateDate(), tasksList.get(i).getDeadline(), tasksList.get(i).getCreatedBy(), tasksList.get(i).getUpdatedBy(), tasksList.get(i).getLastUpdate(), tasksList.get(i).isStatus(), tasksList.get(i).getDescription());
                     count++;
                     for (Performers performer : performers) {
                         if (performer.getTaskId() == tasksList.get(i).getId())
@@ -754,7 +753,7 @@ public class TaskList {
 
                 String deadline = tasksList.get(i).getDeadline();
                 if ((ValidateUtils.toISODate(deadlineInput)).compareTo(ValidateUtils.toISODate(deadline)) >= 0 && performersStr.contains(currentUserFullname) ) {
-                    System.out.printf("%-17s %-23s %-15s %-15s %-15s %-15s %-20s %-15s %-15s\n", tasksList.get(i).getId(), tasksList.get(i).getTaskName(), tasksList.get(i).getCreateDate(), tasksList.get(i).getDeadline(), tasksList.get(i).getCreatedBy(), tasksList.get(i).getUpdatedBy(), tasksList.get(i).getLastUpdate(), tasksList.get(i).isStatus(), tasksList.get(i).getDescription());
+                    System.out.printf("%-17s %-23s %-15s %-15s %-15s %-15s %-40s %-15s %-15s\n", tasksList.get(i).getId(), tasksList.get(i).getTaskName(), tasksList.get(i).getCreateDate(), tasksList.get(i).getDeadline(), tasksList.get(i).getCreatedBy(), tasksList.get(i).getUpdatedBy(), tasksList.get(i).getLastUpdate(), tasksList.get(i).isStatus(), tasksList.get(i).getDescription());
                     count++;
                     for (Performers performer : performers) {
                         if (performer.getTaskId() == tasksList.get(i).getId())

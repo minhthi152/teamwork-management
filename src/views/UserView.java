@@ -40,7 +40,7 @@ public class UserView {
                 System.out.println("|  4. Return              |");
                 System.out.println("---------------------------");
                 System.out.println("Enter your choice: ");
-                int choice = input.nextInt();
+                int choice = Integer.parseInt(input.nextLine());
             User curUser = UserView.findUserByUsername(SignIn.currentUsername);
                 switch (choice) {
                     case 1:
@@ -48,7 +48,6 @@ public class UserView {
 
                         do {
                             System.out.println("Enter new email (ex: thi152@gmail.com): ");
-                            email = input.nextLine().trim();
                             email = input.nextLine().trim();
 
                             if (!ValidateUtils.isEmailValid(email)) {
@@ -70,7 +69,6 @@ public class UserView {
                     case 2:
                         System.out.println("Enter new phone number: ");
                         String phoneNumber = input.nextLine().trim();
-                        phoneNumber = input.nextLine().trim();
                         while (!ValidateUtils.isPhoneValid(phoneNumber)){
                             System.out.println("This phone number does not match the format. Please check and try again!");
                             System.out.println("Enter new phone number (ex: 0987654123): ");
@@ -90,7 +88,6 @@ public class UserView {
                     case 3:
                         System.out.println("Enter your current password: ");
                         String curPassword = input.nextLine();
-                        curPassword = input.nextLine();
 
                         while(!curPassword.equals(curUser.getPassword())){
                             System.out.println("Wrong password, please try again!");
